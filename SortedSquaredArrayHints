@@ -1,0 +1,6 @@
+1. The sorted input array may contain the set of negative numbers as well, 
+so be mindful to add the squared output in the out array at correct location and not at the original index.
+
+2. Try to optimize the solution by adding the squared elements at the correct location in the out array instead of soring the array later on.
+
+3. The pointer can be maintained to figure out the lowest and the highest values and try putting elements from right to left.
