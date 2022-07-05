@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class SortedSquaredArray {
+
+  public int[] sortedSquaredArray(int[] array) {
+    //Always output array will be of same size of input array
+    int []out = new int[array.length];
+    //pointer to point smallest element
+    int lowIndex = 0;
+    //pointer to point largest element
+    int highIndex = array.length-1;
+
+    //maintaining counter to fill the array in reverse order, high ones first
+    int counter = array.length-1;
+    
+    for(int i = 0; i < array.length; i++){
+
+      if(Math.abs(array[lowIndex])>Math.abs(array[highIndex]))
+      {
+        out[counter-i] = array[lowIndex]*array[lowIndex];
+        lowIndex++;
+      } else {
+        out[counter-i] = array[highIndex]*array[highIndex];
+        highIndex--;
+      }
+    }
+    
+    return out;
+  }
+}
