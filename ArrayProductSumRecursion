@@ -1,0 +1,39 @@
+package recursion;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * This is the problem of recursion in which we have to add all the
+ * elements of the array multiplied by its sum.
+ * [1,2,[3,2],6,[[2,4],1],7]
+ * Depth of the whole array having all elements is 1
+ * Depth of array index 2 having element [3,2] is 2
+ * Depth of array index 4 [[2,4],1] is 3
+ * So the product sum = 64 => (((2+4)*3+1)*2+((3+2)*2)+1+2+6+7)*1
+ */
+public class ArrayProductSumRecursion {
+	public static void main(String []args) {
+		List<Integer> l1 = Arrays.asList(3,2);
+		List<Integer> l2 = Arrays.asList(2,4);
+		List<Object> l3 = Arrays.asList(l2,1);
+		List<Object> elements = Arrays.asList(1,2,l1,6,l3,7);
+		System.out.println(productSum(elements,1));
+	}
+	public static int productSum(List<Object> elements, int depth) {
+		int sum = 0;
+		if(elements.size()>0){
+			for(Object ele : elements){
+				if(ele instanceof List){
+					sum+=productSum((List<Object>)ele, depth+1);
+				} else {
+					sum+=(Integer)ele;
+				}
+			}
+			return sum*depth;
+		}
+		return 0;
+	}
+}
