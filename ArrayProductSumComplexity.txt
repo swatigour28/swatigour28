@@ -1,0 +1,4 @@
+Time complexity of ArrayProductSum would be of order N 
+O(n) as each elements are visited only once to calculate the product sum.
+
+Space complexity would O(1)
