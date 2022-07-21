@@ -1,4 +1,5 @@
 Time complexity of ArrayProductSum would be of order N 
 O(n) as each elements are visited only once to calculate the product sum.
 
-Space complexity would O(1)
+Space complexity would be of the order of the depth O(d) as we get max the depth number of frames 
+for example a array of depth 3 will have 3 stacks frames filled
