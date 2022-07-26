@@ -1,0 +1,67 @@
+package recursion;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+class HashSet {
+
+	int initialCapacity = 100;
+	List<List<Integer>> setStorage;
+	public HashSet() {
+		setStorage = new ArrayList<List<Integer>>(initialCapacity);
+		for(int i=0; i<initialCapacity; i++) {
+			setStorage.add(null);
+		}
+
+	}
+
+	public void add(int key) {
+		int index = key % initialCapacity;
+		List<Integer> childList = setStorage.get(index);
+		if(childList == null) {
+			childList = new LinkedList<Integer>();
+			childList.add(key);
+			setStorage.set(index,childList);
+		} else {
+			if(!childList.contains(key)) {
+				childList.add(key);
+			}
+		}
+	}
+
+	public void remove(int key) {
+		int index = key % initialCapacity;
+		List<Integer> childList = setStorage.get(index);
+		if(childList != null) {
+			childList.remove(Integer.valueOf(key));
+		}
+	}
+
+	public boolean contains(int key) {
+		int index = key % initialCapacity;
+		List<Integer> childList = setStorage.get(index);
+		return (childList != null) && childList.contains(key);
+
+	}
+}
+
+public class HashSetImplementationUsingList {
+
+	public static void main(String[] args) {
+		HashSet set = new HashSet();
+		set.add(1);
+		set.add(2);
+		set.contains(3);
+		set.contains(1);
+		set.add(2);
+	}
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet obj = new MyHashSet();
+ * obj.add(key);
+ * obj.remove(key);
+ * boolean param_3 = obj.contains(key);
+ */
