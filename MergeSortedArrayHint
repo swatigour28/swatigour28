@@ -1,0 +1,4 @@
+1. This problem can be solved with two pointer, since both the arrays are sorted so the pointer should point to last element of each array.
+2. Compare the elements at pointer index and add the bigger element at the last index of bigger array.
+3. There can be a case when array 1 has no element, and other array has only one element, so comparision in this case would result in 
+ArrayindexOutOfBound Exception. Handle this case.
